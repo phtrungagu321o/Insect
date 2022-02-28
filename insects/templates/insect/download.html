@@ -1,0 +1,50 @@
+{% extends 'base_layout.html' %}
+
+{% block link %}
+{% load static %}
+
+{% endblock %}
+
+{% block title %}Cơ sở dữ liệu côn trùng{% endblock %}
+
+{% block content %}
+
+{#  <br>#}
+{#    <div class=”container”>#}
+{#        <div class=”row”>#}
+{#                {{ post.title }}#}
+{#                     <img src="{{ post.thumb.url}}" width="100px" height="100px" alt="hinh anh"><br>#}
+{#                     <a href="{{ post.adminupload.url }}" download="{{ post.adminupload.url }}">Download</a>#}
+{#            </div>#}
+{#    </div>#}
+    <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="pb-3 h5">Insects</div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
+
+        {% for post in file %}
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <img class="img-fluid" alt="Responsive image" src="{{ post.thumb.url }}">
+            <div class="card-body">
+              <p class="card-text">
+                <a class="text-dark text-decoration-none" href="#">{{ post.title }}</a>
+              </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted"><a href="{{ post.adminupload.url }}" download="{{ post.adminupload.url }}">Download</a></small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+
+
+
+{% endblock %}
